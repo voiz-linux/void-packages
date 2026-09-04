@@ -30,8 +30,7 @@ jobs:
         run: |
           xbps-install -Syu xbps && xbps-install -yu && xbps-install -y nodejs git curl base-devel bash sudo
           useradd -m builder
-          echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
+          
       - name: Checkout your repo
         uses: actions/checkout@v4
         with:
@@ -45,10 +44,12 @@ jobs:
       - name: Configure ethereal mode
         working-directory: void-packages
         run: |
-          echo -e "XBPS_ALLOW_CHROOT_BREAKOUT=yes\nXBPS_CHROOT_CMD=ethereal\nXBPS_MIRROR=https://repo-fastly.voidlinux.org/current" >> etc/conf
+          cat <<EOF > etc/conf
+          XBPS_ALLOW_CHROOT_BREAKOUT=yes
+          XBPS_CHROOT_CMD=ethereal
+          XBPS_MIRROR=https://repo-fastly.voidlinux.org/current
+          EOF
           ln -s / masterdir
-          mkdir -p /host /builddir /destdir
-          chown builder:builder / /host /builddir /destdir
 
       - name: Merge templates
         run: |
@@ -59,8 +60,7 @@ jobs:
       - name: Build AyuGram
         working-directory: void-packages
         run: |
-          chown -R builder:builder .
-          sudo -u builder /bin/bash ./xbps-src -j$(nproc) pkg ayugram-desktop
+          /bin/bash ./xbps-src -j$(nproc) pkg ayugram-desktop
 
       - name: Sign and Index
         working-directory: void-packages/hostdir/binpkgs

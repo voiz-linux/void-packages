@@ -47,6 +47,8 @@ jobs:
         run: |
           echo -e "XBPS_ALLOW_CHROOT_BREAKOUT=yes\nXBPS_CHROOT_CMD=ethereal\nXBPS_MIRROR=https://repo-fastly.voidlinux.org/current" >> etc/conf
           ln -s / masterdir
+          mkdir -p /host /builddir /destdir
+          chown builder:builder / /host /builddir /destdir
 
       - name: Merge templates
         run: |

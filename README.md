@@ -1,6 +1,6 @@
 # AyuGram Desktop for Void Linux
 
-![AyuGram](https://github.com/AyuGram/AyuGramDesktop/raw/dev/.github/AyuGram.png) ![AyuChan](https://github.com/AyuGram/AyuGramDesktop/raw/dev/.github/AyuChan.png) ![VoidBTW](.forgejo/void-logo.png)
+![AyuGram](https://github.com/AyuGram/AyuGramDesktop/raw/dev/.github/AyuGram.png) ![AyuChan](https://github.com/AyuGram/AyuGramDesktop/raw/dev/.github/AyuChan.png)
 
 Unofficial build of the [AyuGram](https://github.com/AyuGram/AyuGramDesktop) mod for **Void Linux**.
 
@@ -8,10 +8,9 @@ Unofficial build of the [AyuGram](https://github.com/AyuGram/AyuGramDesktop) mod
 
 ### Method 1 — Pre-built binary package
 
-1. Go to the [Releases](https://codeberg.org/OverLessArtem/ayugram-template-void/releases) page
-2. Download the latest release for your architecture:
+1. Go to the [Releases](https://github.com/voiz-linux/void-packages/releases) page
+2. Download the latest release:
    - **x86_64-glibc** — for most systems
-   - **x86_64-musl** — for musl-based Void Linux
 3. Install the package:
 
 ```bash
@@ -26,7 +25,7 @@ sudo xbps-install --repository=$PWD ayugram-desktop
 
 ```bash
 # Clone the template
-git clone https://codeberg.org/OverLessArtem/ayugram-template-void.git
+git clone https://github.com/voiz-linux/void-packages.git
 
 # Clone the official void-packages repository
 git clone https://github.com/void-linux/void-packages.git

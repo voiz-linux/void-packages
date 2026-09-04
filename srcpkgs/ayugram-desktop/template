@@ -1,7 +1,7 @@
 # Template file for 'ayugram-desktop'
 pkgname=ayugram-desktop
 version=7.0.9
-revision=1
+revision=2
 build_style=cmake
 build_helper="qemu gir"
 configure_args="-DTDESKTOP_API_ID=209235 \
@@ -11,7 +11,7 @@ configure_args="-DTDESKTOP_API_ID=209235 \
  -DWaylandScanner_EXECUTABLE=/usr/bin/wayland-scanner \
  -DQT_HOST_PATH=/usr"
 hostmakedepends="pkg-config qt6-base python3 extra-cmake-modules \
- qt6-declarative-host-tools wayland-devel protobuf glib-devel kf6-kcoreaddons git"
+ qt6-declarative-host-tools qt6-shadertools-devel wayland-devel protobuf glib-devel kf6-kcoreaddons git"
 makedepends="alsa-lib-devel boost-devel-minimal libboost_regex \
  fmt-devel ffmpeg6-devel libglib-devel \
  gobject-introspection libdbusmenu-glib-devel libopenal-devel \
@@ -21,7 +21,7 @@ makedepends="alsa-lib-devel boost-devel-minimal libboost_regex \
  qt6-base-private-devel kf6-kcoreaddons-devel ada-devel \
  xcb-util-keysyms-devel hunspell-devel protobuf-devel \
  glibmm2.68-devel tg_owt rnnoise-devel jemalloc-devel qt6-declarative-devel \
- libdispatch-devel"
+ libdispatch-devel qt6-shadertools-devel"
 depends="qt6-imageformats ttf-opensans"
 short_desc="Desktop Telegram client with good customization and Ghost mode"
 maintainer="VoizLinux <iz@anrix.org>"

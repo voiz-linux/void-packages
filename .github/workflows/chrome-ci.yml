@@ -62,7 +62,7 @@ jobs:
           /bin/bash ./xbps-src -j$(nproc) pkg google-chrome
 
       - name: Sign and Index
-        working-directory: void-packages/hostdir/binpkgs
+        working-directory: void-packages/hostdir/binpkgs/nonfree
         env:
           PRIV_KEY: ${{ secrets.PRIV_KEY }}
         run: |

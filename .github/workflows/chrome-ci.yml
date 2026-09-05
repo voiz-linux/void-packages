@@ -29,7 +29,6 @@ jobs:
       - name: Install dependencies
         run: |
           xbps-install -Syu xbps && xbps-install -yu && xbps-install -y nodejs git curl base-devel bash sudo file
-          useradd -m builder
           
       - name: Checkout your repo
         uses: actions/checkout@v4

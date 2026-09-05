@@ -45,6 +45,7 @@ jobs:
         working-directory: void-packages
         run: |
           cat <<EOF > etc/conf
+          XBPS_ALLOW_RESTRICTED=yes
           XBPS_ALLOW_CHROOT_BREAKOUT=yes
           XBPS_CHROOT_CMD=ethereal
           XBPS_MIRROR=https://repo-fastly.voidlinux.org/current

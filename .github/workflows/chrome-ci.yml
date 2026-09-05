@@ -1,4 +1,4 @@
-name: Build AyuGram
+name: Build Chrome
 
 on:
   push:

@@ -5,12 +5,12 @@ on:
     branches:
       - main
     paths:
-      - 'srcpkgs/**'
+      - 'srcpkgs/google-chrome/**'
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build AyuGram x86_64
+    name: Build (Google Chrome) x86_64
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/void-linux/void-glibc-full
@@ -53,14 +53,12 @@ jobs:
 
       - name: Merge templates
         run: |
-          cp -rv main-repo/srcpkgs/ayugram-desktop void-packages/srcpkgs/
-          PKGVERSION=$(grep '^version=' main-repo/srcpkgs/ayugram-desktop/template | cut -d= -f2 | tr -d '"')
-          echo "pkgversion=$PKGVERSION" >> $GITHUB_OUTPUT
+          cp -frv main-repo/srcpkgs/google-chrome void-packages/srcpkgs/
 
       - name: Build AyuGram
         working-directory: void-packages
         run: |
-          /bin/bash ./xbps-src -j$(nproc) pkg ayugram-desktop
+          /bin/bash ./xbps-src -j$(nproc) pkg google-chrome
 
       - name: Sign and Index
         working-directory: void-packages/hostdir/binpkgs

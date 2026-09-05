@@ -1,7 +1,7 @@
 # Template file for 'ayugram-desktop'
 pkgname=ayugram-desktop
 version=7.0.9
-revision=3
+revision=4
 build_style=cmake
 build_helper="qemu gir"
 configure_args="-DTDESKTOP_API_ID=209235 \
@@ -50,6 +50,7 @@ pre_configure() {
     CFLAGS="${CFLAGS/ -g/ -g1}"
     CXXFLAGS="${CXXFLAGS/ -g/ -g1}"
 }
+
 post_patch() {
-    vsed -i 's/tr::ayu_UserNotFoundMessage()/tr::lng_username_not_found()/g' Telegram/SourceFiles/ayu/ayu_url_handlers.cpp
+    vsed -i 's/tr::ayu_UserNotFoundMessage()/QString("User not found.")/g' Telegram/SourceFiles/ayu/ayu_url_handlers.cpp
 }
